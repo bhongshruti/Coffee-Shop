@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COFFEE SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: black;
+            color: white; /* Set text color to white for better visibility on a black background */
+            margin: 0;
+        }
+        header {
+            background-color: #964B00; /* Dark brown color for the header */
+            color: #FFF; /* Text color */
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-weight: bold; /* Make the text bold */
+            font-size: 36px; /* Adjust the font size as needed */
+            margin-bottom: 10px; /* Add some bottom margin for spacing */
+            text-transform: uppercase; /* Convert text to uppercase for emphasis */
+            letter-spacing: 2px; /* Add some letter spacing for style */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        section {
+            text-align: center; /* center the content within the section */
+        }
+
+        section img {
+            width: 55%; /* Set the width to 100% of the container */
+            height: auto; /* Maintain the aspect ratio */
+            border-radius: 8px; /* Add rounded corners for style */
+            border: 2px solid red; /* Set the border color to red */
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+
+        .menu-item h3 {
+            font-weight: bold; /* Make the item names bold */
+            color: #FFF; /* Optionally, you can specify a color for the item names */
+        }
+
+        .menu-item p {
+            color: #888;
+            margin: 10px 0;
+        }
+
+        .menu-item button {
+            background-color: #964B00;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-item button:hover {
+            background-color: #663300;
+        }
+        #order-summary {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #3E2723;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .summary-box {
+            background-color: #FFF;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        #order-summary p:nth-child(even) {
+            background-color: #4CAF50; /* Green background for even items */
+        }
+
+        #order-summary p:nth-child(odd) {
+            background-color: #2196F3; /* Blue background for odd items */
+        }
+
+        h2 {
+            color: #964B00;
+        }
+
+        .order-details {
+            margin-bottom: 20px;
+        }
+
+        #totalItems,
+        #totalPrice {
+            font-weight: bold;
+            color: #964B00;
+        }
+
+        button {
+            background-color: #964B00;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #663300;
+        }
+    </style>
+</head>
+<body>
+    
+
+        <h1>Coffee Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   
+
+    <section id="home">
+        <h2>Welcome to our Coffee Shop!</h2>
+        <img src="img/front page.jpg">
+        <p>Our homepage is like the entrance, showcasing our special coffee blends and promotions.</p>
+        <!-- Featured products, promotions, or specials -->
+    </section>
+
+    <section id="menu">
+        <h2>Explore Our Coffee Menu</h2>
+        <p>Our comprehensive menu page helps you find your favorite coffee.</p>
+        <div class="menu-item">
+            <h3>1]Americano</h3>
+            <img src="img/Americano.jpg" alt="Americano">
+            <p>An Americano is a coffee made by diluting a shot of espresso with hot water.
+                It has a similar strength to traditional brewed coffee but retains the rich flavor of espresso.</p>
+            <p>RS 250</p>
+            <button onclick="addToCart('Americano', 250)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/Expresso.jpeg" alt="Espresso">
+            <h3>2]Espresso</h3>
+            <p>Espresso is a concentrated coffee brewed by forcing hot water through finely-ground coffee beans.
+                It's a strong and bold coffee with a rich and intense flavor.</p>
+            <p>RS 300</p>
+            <button onclick="addToCart('Latte', 300)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/FlatWhite.jpg" alt="FlatWhite">
+            <h3>3]Flarwhite</h3>
+            <p>A Flat White is a coffee drink made with espresso and microfoam (steamed milk with fine, velvety bubbles).
+                It has a strong coffee flavor balanced with the smoothness of the microfoam, creating a creamy and velvety texture.</p>
+            <p>RS350</p>
+            <button onclick="addToCart('FlatWhite', 350)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/latteCoffe.jpg" alt="Latte">
+            <h3>4]Latte</h3>
+            <p>A Latte is made with espresso and steamed milk. It usually has a small amount of foam on top.
+                It has a milder coffee flavor compared to a straight espresso, with the creaminess from the steamed milk.</p>
+            <p>RS 350</p>
+            <button onclick="addToCart('Latte', 350)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="img/Mocha.png" alt="Mocha">
+            <h3>5]Mocha</h3>
+            <p>A Mocha is a coffee drink that combines espresso, steamed milk, and chocolate syrup.
+                It's like a chocolate-infused latte, offering a sweet and indulgent flavor.</p>
+            <p>RS 350</p>
+            <button onclick="addToCart('Mocha', 350)">Add to Cart</button>
+        </div>
+    
+        <!-- Additional menu items with descriptions and prices -->
+    </section>
+
+
+    <section id="order-summary">
+        <div class="summary-box">
+            <h2>Your Order</h2>
+            <div id="Cart"></div>
+        
+            <div class="order-details">
+                <!-- Add content for the order summary here -->
+                <p>Total Items: <span id="totalItems">0</span></p>
+                <p>Total Price: RS<span id="totalPrice">0.00</span></p>
+                <button onclick="placeOrder()">Place Order</button>
+
+                
+            </div>   
+    </section>
+    
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <!-- Contact information for the coffee shop -->
+    </section>
+
+    <section id="Thank You">
+        <h2>Thank You Visit Again!</h2>
+
+    </section>
+
+    
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
